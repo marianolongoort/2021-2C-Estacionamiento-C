@@ -11,16 +11,28 @@ namespace EstacionamientoMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        
+        public HomeController()
         {
-            _logger = logger;
+            
         }
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
-            return View();
+            Persona persona1 = new Persona();
+            persona1.Nombre = "Pedro";
+            persona1.Apellido = "Picapiedra";
+
+            Persona persona2 = new Persona() { Nombre="Pablo",Apellido="Marmol"};
+
+   
+
+            return View(persona2);
+        }
+
+        private void Imprimir(Persona persona)
+        {
+            //logica para imprimir nombre persona.Nombre
         }
 
         public IActionResult Privacy()
