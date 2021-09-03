@@ -7,7 +7,7 @@ namespace EstacionamientoMVC.Helpers
 {
     public static class ErrMsgs
     {
-        public const string Requerido = "El campo {0} es requerido";
+        public const string Requerido = "El campo {0} es requerido";        
         public const string RangoMinMax = "El campo {0} debe estar comprendido entre {1} y {2}";
         public const string StrMaxMin = "El campo {0}, debe tener un mínimo de {2} y un máximo de {1}";
         public const string StrMax = "El campo {0}, debe tener un máximo de {1}";

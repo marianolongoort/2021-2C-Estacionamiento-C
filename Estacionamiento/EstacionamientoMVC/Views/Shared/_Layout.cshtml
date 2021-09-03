@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - EstacionamientoMVC</title>
+    <title>@ViewData["Title"] - Aver</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -24,6 +24,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Mi" asp-action="Default">Default</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -31,7 +34,9 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            
             @RenderBody()
+            
         </main>
     </div>
 

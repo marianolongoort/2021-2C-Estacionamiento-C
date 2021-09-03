@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -33,5 +34,11 @@ namespace EstacionamientoMVC.Models
 
         public List<PersonaVehiculo> VehiculosAutorizados { get; set; }
 
+        
+        public string NombreCompleto { get             
+            {
+                return $"{Apellido.ToUpper()}, {Nombre}";
+            }
+        }
     }
 }
