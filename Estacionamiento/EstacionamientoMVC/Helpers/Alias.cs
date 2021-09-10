@@ -7,7 +7,7 @@ namespace EstacionamientoMVC.Helpers
 {
     public static class Alias
     {
-        public const string DNI= "Documento";
+        public const string DNI= "CUIL";
         public const string Email = "Correo electrónico";
         public const string PersonaId = "Persona";
         public const string Anio = "Año";

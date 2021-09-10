@@ -22,7 +22,7 @@ namespace EstacionamientoMVC.Models
         public string Apellido { get; set; }
 
         [Required(ErrorMessage = ErrMsgs.Requerido)]
-        [Range(Restrictions.FloorDNI,Restrictions.CeilDNI,ErrorMessage = ErrMsgs.RangoMinMax)]
+        [Range(Restrictions.FloorDNI, Restrictions.CeilDNI, ErrorMessage = ErrMsgs.RangoMinMax)]
         [Display(Name = Alias.DNI)]
         public int DNI { get; set; }
 
@@ -32,7 +32,7 @@ namespace EstacionamientoMVC.Models
         [Display(Name = Alias.Email)]
         public string Email { get; set; }
 
-        public List<PersonaVehiculo> VehiculosAutorizados { get; set; }
+        //public List<PersonaVehiculo> VehiculosAutorizados { get; set; }
 
         
         public string NombreCompleto { get             
