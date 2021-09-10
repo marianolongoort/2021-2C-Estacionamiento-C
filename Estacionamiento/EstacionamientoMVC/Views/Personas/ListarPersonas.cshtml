@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Persona>
+@{
+
+}
+
+<h1>Listar Personas </h1>
+
+<div>
+    <h2>Los Pedros</h2>
+    @foreach(Persona persona in ViewBag.LosPedros){ 
+        <p>
+            @persona.NombreCompleto
+        </p>
+    }
+</div>
+
+<div>
+    <h2>Los Pablos</h2>
+    @foreach (Persona persona in ViewBag.LosPablos)
+    {
+        <p>
+            @persona.NombreCompleto
+        </p>
+    }
+</div>
+
+
+<div>
+    <h2>Todos</h2>
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DNI)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Persona persona in Model)
+            {
+                <tr>
+                    <td>
+                        @persona.Apellido
+                    </td>
+                    <td>
+                        @persona.Nombre
+                    </td>
+                    <td>
+                        @persona.Email
+                    </td>
+                    <td>
+                        @persona.DNI
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
