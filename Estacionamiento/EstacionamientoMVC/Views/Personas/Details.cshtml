@@ -1,13 +1,12 @@
 ﻿@model EstacionamientoMVC.Models.Persona
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = @AliasGUI.Details;
 }
 
-<h1>Details</h1>
+<h1>@ViewData["Title"]</h1>
 
-<div>
-    <h4>Persona</h4>
+<div>    
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -37,6 +36,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">@AliasGUI.Edit</a> |
+    <a asp-action="Index">@AliasGUI.BackToList</a>
 </div>

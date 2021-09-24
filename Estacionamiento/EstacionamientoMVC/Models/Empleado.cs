@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EstacionamientoMVC.Models
 {
-    public class Empleado
+    public class Empleado : Persona
     {
         [Required(ErrorMessage = ErrMsgs.Requerido)]
         [StringLength(Restrictions.FloorL4, MinimumLength = Restrictions.CeilL1, ErrorMessage = ErrMsgs.FixedSize)]

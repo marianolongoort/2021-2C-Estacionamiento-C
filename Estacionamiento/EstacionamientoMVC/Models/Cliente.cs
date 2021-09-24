@@ -10,10 +10,12 @@ namespace EstacionamientoMVC.Models
     public class Cliente : Persona
     {
         [Range(Restrictions.FloorCUIL, Restrictions.CeilCUIL, ErrorMessage = ErrMsgs.RangoMinMax)]
-        public int CUIT { get; set; }
+        public long CUIT { get; set; }
 
         public Direccion Direccion { get; set; }
 
-        public List<Telefono> Telefonos { get; set; }  
+        public List<Telefono> Telefonos { get; set; }
+
+        //public List<ClienteVehiculo> VehiculosAutorizados { get; set; }
     }
 }

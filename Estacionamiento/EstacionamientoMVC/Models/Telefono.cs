@@ -14,7 +14,7 @@ namespace EstacionamientoMVC.Models
         [Required(ErrorMessage = ErrMsgs.Requerido)]        
         public int CodArea { get; set; }
         
-        [Required(ErrorMessage = ErrMsgs.Requerido)]
+        [Required(ErrorMessage = ErrMsgs.Requerido)]        
         public int Numero { get; set; }
 
         public bool Principal { get; set; }

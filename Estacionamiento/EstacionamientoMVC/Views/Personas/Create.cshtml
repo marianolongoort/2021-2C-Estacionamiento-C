@@ -1,12 +1,11 @@
 ﻿@model EstacionamientoMVC.Models.Persona
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = @AliasGUI.Create;    
 }
 
-<h1>Create</h1>
+<h4>@ViewData["Title"]</h4>
 
-<h4>Persona</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -33,14 +32,14 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="@AliasGUI.Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">@AliasGUI.BackToList</a>
 </div>
 
 @section Scripts {
