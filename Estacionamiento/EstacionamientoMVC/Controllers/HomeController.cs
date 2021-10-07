@@ -17,7 +17,7 @@ namespace EstacionamientoMVC.Controllers
             
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string algunparametro)
         {           
             return View();
         }
