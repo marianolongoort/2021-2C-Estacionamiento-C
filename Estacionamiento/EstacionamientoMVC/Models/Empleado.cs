@@ -13,6 +13,6 @@ namespace EstacionamientoMVC.Models
         [StringLength(Restrictions.FloorL4, MinimumLength = Restrictions.CeilL1, ErrorMessage = ErrMsgs.FixedSize)]
         public string CodigoEmpleado { get; set; }
 
-        public Telefono Telefono { get; set; }
+        
     }
 }

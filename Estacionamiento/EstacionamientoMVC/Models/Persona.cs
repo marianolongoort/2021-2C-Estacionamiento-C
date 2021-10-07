@@ -36,8 +36,11 @@ namespace EstacionamientoMVC.Models
         [Display(Name = Alias.NombreCompleto)]
         public string NombreCompleto { get             
             {
+                if (Apellido == null) return Nombre;
                 return $"{Apellido.ToUpper()}, {Nombre}";
             }
         }
+
+        public List<Telefono> Telefonos { get; set; }
     }
 }

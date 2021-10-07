@@ -14,7 +14,7 @@ namespace EstacionamientoMVC.Models
 
         public Direccion Direccion { get; set; }
 
-        public List<Telefono> Telefonos { get; set; }
+        
 
         //public List<ClienteVehiculo> VehiculosAutorizados { get; set; }
     }
