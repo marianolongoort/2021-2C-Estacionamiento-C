@@ -14,5 +14,6 @@ namespace EstacionamientoMVC.Helpers
         public const string Generico = "Verifique el ingreso del campo {0}";
         public const string NoValido = "El campo {0} no es válido";
         public const string FixedSize = "El campo {0} debe tener {1} caracteres";
+        public const string PassMissmatch = "La contraseña no es igual";
     }
 }

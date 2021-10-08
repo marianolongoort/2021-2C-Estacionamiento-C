@@ -1,4 +1,5 @@
 ﻿using EstacionamientoMVC.Helpers;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -30,6 +31,7 @@ namespace EstacionamientoMVC.Models
         [Required(ErrorMessage = ErrMsgs.Requerido)]
         [DataType(DataType.EmailAddress,ErrorMessage = ErrMsgs.NoValido)]
         [Display(Name = Alias.Email)]
+        [Remote(action: "Emaildisponible", controller:"personas")]
         public string Email { get; set; }
 
 

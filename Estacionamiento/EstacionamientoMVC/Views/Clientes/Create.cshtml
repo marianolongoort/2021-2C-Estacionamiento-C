@@ -1,21 +1,23 @@
-﻿@model EstacionamientoMVC.Models.Persona
+﻿@model EstacionamientoMVC.Models.Cliente
 
 @{
-    ViewData["Title"] = @AliasGUI.Create;    
+    ViewData["Title"] = "Create";
 }
 
-<h4>@ViewData["Title"]</h4>
+<h1>Create</h1>
 
+<h4>Cliente</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>            <div class="form-group">
+                <label asp-for="CUIT" class="control-label"></label>
+                <input asp-for="CUIT" class="form-control" />
+                <span asp-validation-for="CUIT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Nombre" class="control-label"></label>
                 <input asp-for="Nombre" class="form-control" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
@@ -30,16 +32,20 @@
                 <input asp-for="DNI" class="form-control" />
                 <span asp-validation-for="DNI" class="text-danger"></span>
             </div>
-
             <div class="form-group">
-                <input type="submit" value="@AliasGUI.Create" class="btn btn-primary" />
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">@AliasGUI.BackToList</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

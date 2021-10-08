@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EstacionamientoMVC.ViewModels;
 
 namespace EstacionamientoMVC.Data
 {
@@ -23,7 +24,6 @@ namespace EstacionamientoMVC.Data
         public DbSet<Empleado> Empleados { get; set; }
 
         public DbSet<Direccion> Direcciones { get; set; }
-
 
     }
 }

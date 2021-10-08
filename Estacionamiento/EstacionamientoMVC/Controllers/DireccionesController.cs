@@ -19,14 +19,12 @@ namespace EstacionamientoMVC.Controllers
             _context = context;
         }
 
-        // GET: Direcciones
         public async Task<IActionResult> Index()
         {
             var estacionamientoContext = _context.Direcciones.Include(d => d.Cliente);
             return View(await estacionamientoContext.ToListAsync());
         }
 
-        // GET: Direcciones/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,16 +43,21 @@ namespace EstacionamientoMVC.Controllers
             return View(direccion);
         }
 
-        // GET: Direcciones/Create
-        public IActionResult Create()
+        public IActionResult Create(int? idPersona)
         {
-            ViewData["Id"] = new SelectList(_context.Clientes, "Id", "Apellido");
+            //si no recibo el id, que hago?
+            if(idPersona == null)
+            {
+                ViewData["Id"] = new SelectList(_context.Clientes.Include(clt => clt.Direccion).Where(clt => clt.Direccion == null )   , "Id", "NombreCompleto");
+            }
+            else
+            {
+                ViewBag.IdPersona = idPersona;
+            }
+            
             return View();
         }
 
-        // POST: Direcciones/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Calle,Numero,Piso,Departamento,CodigoPostal")] Direccion direccion)
@@ -69,7 +72,6 @@ namespace EstacionamientoMVC.Controllers
             return View(direccion);
         }
 
-        // GET: Direcciones/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,9 +88,6 @@ namespace EstacionamientoMVC.Controllers
             return View(direccion);
         }
 
-        // POST: Direcciones/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Calle,Numero,Piso,Departamento,CodigoPostal")] Direccion direccion)
@@ -122,7 +121,6 @@ namespace EstacionamientoMVC.Controllers
             return View(direccion);
         }
 
-        // GET: Direcciones/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -141,7 +139,6 @@ namespace EstacionamientoMVC.Controllers
             return View(direccion);
         }
 
-        // POST: Direcciones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
