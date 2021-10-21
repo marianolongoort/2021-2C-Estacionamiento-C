@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EstacionamientoMVC.Models.Vehiculo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+@if(User.IsInRole("Empleado") || User.IsInRole("Administrador"))
+{
+    <p>
+        <a asp-action="Create">@AliasGUI.Create</a>
+    </p>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Patente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnioFabricacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnioFabricacion)
+            </td>
+            @if (User.IsInRole("Empleado") || User.IsInRole("Administrador"))
+            {
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">@AliasGUI.Details</a> |
+                    <a asp-action=@AliasGUI.Details asp-route-id="@item.Id">@AliasGUI.Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">@AliasGUI.Delete</a>
+                </td>
+            }
+
+        </tr>
+        }
+    </tbody>
+</table>

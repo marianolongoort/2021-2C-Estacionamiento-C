@@ -1,0 +1,45 @@
+﻿@model EstacionamientoMVC.Models.Vehiculo
+
+@{
+    ViewData["Title"] = @AliasGUI.Delete;
+}
+
+
+
+<h6>@AliasGUI.SureToDelete</h6>
+<div>
+    <h4>Vehiculo</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Patente)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Patente)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AnioFabricacion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnioFabricacion)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="@AliasGUI.Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">@AliasGUI.BackToList</a>
+    </form>
+</div>
