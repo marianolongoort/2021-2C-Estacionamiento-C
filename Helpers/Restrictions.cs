@@ -21,5 +21,6 @@ namespace EstacionamientoMVC.Helpers
         public const long CeilCUIL = 30999999999;
         public const int FloorVehiculoAnio = 1900;
         public const int CeilVehiculoAnio = 2099;
+        public const string RolesLevel2 = "Empleado,Administrador";
     }
 }

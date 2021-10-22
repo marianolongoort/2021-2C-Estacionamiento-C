@@ -55,8 +55,8 @@
                 @Html.DisplayFor(modelItem => item.Cliente.Apellido)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">@AliasGUI.Details</a> |
-                <a asp-action=@AliasGUI.Details asp-route-id="@item.Id">@AliasGUI.Details</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">@AliasGUI.Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">@AliasGUI.Details</a> | 
                 <a asp-action="Delete" asp-route-id="@item.Id">@AliasGUI.Delete</a>
             </td>
         </tr>

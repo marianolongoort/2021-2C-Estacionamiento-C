@@ -56,7 +56,7 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    <a asp-action=@AliasGUI.Details asp-route-id="@item.Id">Details | </a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details | </a>
                     @if (singInManager.IsSignedIn(User))
                     {
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit |</a>

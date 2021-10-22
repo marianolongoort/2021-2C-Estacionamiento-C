@@ -70,11 +70,8 @@ namespace EstacionamientoMVC.Controllers
                 if (resultadoCreacion.Succeeded)
                 {
                     //Agrego el rol, pero antes verifico solo en este caso si existen los roles 
-
-                    if (!_rolManager.Roles.Any())
-                    {
-                        await CrearRolesBase();
-                    }
+                    await CrearRolesBase();
+                    
 
                     //le agrego el rol de cliente por ejemplo.
                     var resultado = await _userManager.AddToRoleAsync(clienteACrear,"Cliente");
@@ -149,13 +146,10 @@ namespace EstacionamientoMVC.Controllers
         {
             List<string> roles = new List<string>() { "Administrator", "Cliente", "Empleado", "UsuarioBase" };
 
-            if (!_context.Roles.Any())
+            foreach(string rol in roles)
             {
-                foreach(string rol in roles)
-                {
-                    await CrearRole(rol);
-                }
-            }            
+                await CrearRole(rol);
+            }           
         }
 
         private async Task CrearRole(string rolName)
