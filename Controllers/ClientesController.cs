@@ -79,6 +79,11 @@ namespace EstacionamientoMVC.Controllers
                 return NotFound();
             }
 
+            if (id != Int32.Parse(User.Claims.First().Value))
+            {
+                return RedirectToAction("AccesoDenegado", "Account");
+            }
+
             var cliente = await _garageContext.Clientes.FindAsync(id);
             if (cliente == null)
             {
@@ -94,6 +99,11 @@ namespace EstacionamientoMVC.Controllers
             if (id != cliente.Id)
             {
                 return NotFound();
+            }
+
+            if (id != Int32.Parse(User.Claims.First().Value))
+            {
+                return RedirectToAction("AccesoDenegado", "Account");
             }
 
             if (ModelState.IsValid)
