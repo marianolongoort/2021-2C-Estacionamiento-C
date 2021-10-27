@@ -2,63 +2,67 @@
 
 @{
     ViewData["Title"] = @AliasGUI.Create;
-
-    SelectList datosDeSelect = ViewBag.Id;
 }
-
-
 
 <h4>Direccion</h4>
 <hr />
-@if (datosDeSelect.Any())
+
+@if (@ViewBag.ClienteId != null || ViewBag.Id.Any())
 {
-    //Tratamiento común
-
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Id" class="control-label"></label>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                @*Se ejemplifica unicamente, la diferencia para contemplar diferentes tipos elementos HTML, para una misma propiedad.*@
+                @if (ViewBag.ClienteId == null)
+                {
                     <select asp-for="Id" class="form-control" asp-items="ViewBag.Id"></select>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Calle" class="control-label"></label>
-                    <input asp-for="Calle" class="form-control" />
-                    <span asp-validation-for="Calle" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Numero" class="control-label"></label>
-                    <input asp-for="Numero" class="form-control" />
-                    <span asp-validation-for="Numero" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Piso" class="control-label"></label>
-                    <input asp-for="Piso" class="form-control" />
-                    <span asp-validation-for="Piso" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Departamento" class="control-label"></label>
-                    <input asp-for="Departamento" class="form-control" />
-                    <span asp-validation-for="Departamento" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CodigoPostal" class="control-label"></label>
-                    <input asp-for="CodigoPostal" class="form-control" />
-                    <span asp-validation-for="CodigoPostal" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="@AliasGUI.Create" class="btn btn-primary" />
-                </div>
-            </form>
-        </div>
-    </div>
+                }
+                else
+                {
 
+                    <input asp-for="Id" class="form-control" value="@ViewBag.ClienteId" readonly />
+                }
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Calle" class="control-label"></label>
+                <input asp-for="Calle" class="form-control" />
+                <span asp-validation-for="Calle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" class="form-control" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Piso" class="control-label"></label>
+                <input asp-for="Piso" class="form-control" />
+                <span asp-validation-for="Piso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Departamento" class="control-label"></label>
+                <input asp-for="Departamento" class="form-control" />
+                <span asp-validation-for="Departamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodigoPostal" class="control-label"></label>
+                <input asp-for="CodigoPostal" class="form-control" />
+                <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@AliasGUI.Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
 }
 else
 {
     //mensaje de error o no disponible
-    <h4 class="text-danger">No hay clientes disponibles para agregar una dirección</h4>
+<h4 class="text-danger">No hay clientes disponibles para agregar una dirección</h4>
 }
 
 <div>

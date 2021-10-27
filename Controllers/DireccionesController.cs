@@ -46,13 +46,25 @@ namespace EstacionamientoMVC.Controllers
         }
 
         // GET: Direcciones/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
-            ViewData["Id"] = new SelectList(
-                _context.Clientes
-                            .Include(clt => clt.Direccion)
-                            .Where(clt => clt.Direccion ==null)
-                            , "Id", "NombreCompleto");
+            if(id == null) {
+                ViewData["Id"] = new SelectList(
+                    _context.Clientes
+                                .Include(clt => clt.Direccion)
+                                .Where(clt => clt.Direccion == null)
+                                , "Id", "NombreCompleto");
+            }
+            else if(_context.Clientes.Any(c=>c.Id == id))
+            {
+                ViewBag.ClienteId = id;
+            }
+            else
+            {
+                return NotFound();
+            }
+
+            
             return View();
         }
 
